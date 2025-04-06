@@ -61,26 +61,24 @@ async def run():
             # Read a resource
             #content, mime_type = await session.read_resource("file://some/path")
 
-            # Call a tool
-            result = await session.call_tool("fetch_weather", arguments={"city": "jundiai"})
-                        # Acessando o conteúdo JSON a partir do TextContent
-            # Verifique a estrutura de result.content
-            #print("Result Content:", result.content)  # Para depuração
+            city = "jundiai"
+            days = 1
+            # Call current weather tool
+            result = await session.call_tool("fetch_weather", arguments={"city": city})
+            weather_data = json.loads(result.content[0].text)
+            weather_text = (f"Current Weather in Jundiaí: Temperature: {weather_data['main']['temp']}°C, Description: {weather_data['weather'][0]['description'].capitalize()}, Humidity: {weather_data['main']['humidity']}%, Wind Speed: {weather_data['wind']['speed']} m/s")
+            print(weather_text)
 
-            # Asuppondo que result.content seja uma lista e que você precisa pegar o primeiro item
-            if isinstance(result.content, list) and len(result.content) > 0:
-                weather_data = json.loads(result.content[0].text)  # Acesse o primeiro item se for uma lista
-                
-                # Imprimindo informações formatadas diretamente
-                print(f"Current Weather in Jundiaí:\n"
-                      f"Temperature: {weather_data['main']['temp']}°C\n"
-                      f"Description: {weather_data['weather'][0]['description'].capitalize()}\n"
-                      f"Humidity: {weather_data['main']['humidity']}%\n"
-                      f"Wind Speed: {weather_data['wind']['speed']} m/s")
-            else:
-                print("Unexpected format of result.content:", result.content)
             
+            # Call forecast weather tool
+            result = await session.call_tool("fetch_forecast", arguments={"city": city, "days":days})
+            weather_data = json.loads(result.content[0].text)
+            #weather_text = (f"Current Weather in Jundiaí: Temperature: {weather_data['main']['temp']}°C, Description: {weather_data['weather'][0]['description'].capitalize()}, Humidity: {weather_data['main']['humidity']}%, Wind Speed: {weather_data['wind']['speed']} m/s")
+            print(weather_data)
 
+
+
+          
 
 if __name__ == "__main__":
     import asyncio
