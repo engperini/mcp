@@ -5,6 +5,7 @@ import os
 from dotenv import load_dotenv
 import json
 from collections import defaultdict
+import requests
 
 load_dotenv()
 OPENWEATHER_API_KEY = os.getenv("OPENWEATHER_API_KEY")
@@ -68,6 +69,26 @@ async def fetch_forecast(city: str, days: int) -> str:
             print("Não foi possível obter a previsão do tempo.")
             
         return forecast_summary
+    
+@mcp.tool()
+async def sendwhats(msg: str, num: str) -> str:
+    url = "http://localhost:3000/api/sendText"
+    headers = {
+        "Accept": "application/json",
+        "Content-Type": "application/json"
+    }
+    data = {
+        "chatId": f"{num}@c.us",
+        "text": msg,
+        "session": "default"
+    }
+
+    response = requests.post(url, json=data, headers=headers)
+    print(response.json())
+    
+    return response.json()
+    
+
 
 
 # Add a dynamic greeting resource
