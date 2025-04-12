@@ -63,7 +63,7 @@ async def process_llm(chat_id, user_message):
         conversation_history[chat_id].append(("User", user_message))
         
         # Define as instruções usando as últimas 3 interações (ou toda a história, se preferir)
-        instructions = "Você é um assistente chatbot útil, respostas curtas e diretas. use ferramentas para informacoes atualizadas quando necessario. Histórico:\n" + "\n".join(
+        instructions = "Você é um assistente chatbot útil, use ferramentas para informacoes atualizadas quando necessario. Histórico:\n" + "\n".join(
             f"{role}: {msg}" for role, msg in conversation_history[chat_id][-3:]
         )
         
