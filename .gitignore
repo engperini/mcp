@@ -14,3 +14,5 @@ eggs/
 *.pyd
 .idea/
 .vscode/
+*.log
+allowed_contacts

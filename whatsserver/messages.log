@@ -536,3 +536,6 @@
 {"from": "5519971120828@c.us", "from_name": "Desconhecido", "to": "5511987773459@c.us", "type": "", "user_message": "Saudades", "assistant_response": "Saudade de qu\u00ea?", "timestamp": "2025-04-12 02:09:24"}
 {"from": "120363337859781974@g.us", "from_name": "Desconhecido", "to": "5511987773459@c.us", "type": "", "user_message": "", "assistant_response": "mensagem texto vazia", "timestamp": "2025-04-12 02:11:27"}
 {"from": "5519971120828@c.us", "from_name": "Desconhecido", "to": "5511987773459@c.us", "type": "", "user_message": "Nada", "assistant_response": "Beleza. Se precisar de algo, \u00e9 s\u00f3 falar.", "timestamp": "2025-04-12 02:14:59"}
+{"from": "status@broadcast", "from_name": "Desconhecido", "to": "5511987773459@c.us", "type": "", "user_message": "", "assistant_response": "mensagem texto vazia", "timestamp": "2025-04-12 02:18:22"}
+{"from": "status@broadcast", "from_name": "Desconhecido", "to": "5511987773459@c.us", "type": "", "user_message": "", "assistant_response": "mensagem texto vazia", "timestamp": "2025-04-12 02:18:39"}
+{"from": "553491497152-1406636975@g.us", "from_name": "Desconhecido", "to": "5511987773459@c.us", "type": "", "user_message": "", "assistant_response": "mensagem texto vazia", "timestamp": "2025-04-12 02:19:21"}
